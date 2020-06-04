@@ -1,0 +1,4 @@
+-- Standard library function foldl, provided for reference
+foldl :: (b -> a -> b) -> b -> [a] -> b
+foldl _ z []     = z
+foldl f z (x:xs) = foldl f (f z x) xs

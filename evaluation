@@ -1,0 +1,23 @@
+ take 4 (repeat 7)
+          { 4 <= 0 is False, so we proceed to the second clause, which
+        needs to match on the second argument. So we must expand
+        repeat 7 one step. }
+    = take 4 (7 : repeat 7)
+          { the second clause does not match but the third clause
+            does. Note that (3-1) does not get evaluated yet! }
+    = 7 : take (4-1) (repeat 7)
+          { In order to decide on the first clause, we must test (3-1)
+            <= 0 which requires evaluating (4-1). }
+    = 7 : take 3 (repeat 7)
+          { 3 <= 0 is False, so we must expand repeat 7 again. }
+    = 7 : take 3 (7 : repeat 7)
+          { The rest is similar. }
+    = 7 : 7 : take (3-1) (repeat 7)
+    = 7 : 7 : take 2 (repeat 7)
+    = 7 : 7 : take 2 (7 : repeat 7)
+    = 7 : 7 : 7 : take (2-1) (repeat 7)
+    = 7 : 7 : 7 : take 1 (repeat 7)
+    = 7 : 7 : take 1 (7 : repeat 7)
+    = 7 : 7 : 7 : take (1-1) (repeat 7)
+    = 7 : 7 : 7 : take 0 (repeat 7)
+    = 7 : 7 : 7 : []

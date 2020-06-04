@@ -1,0 +1,36 @@
+(&&) :: Bool -> Bool -> Bool
+False  && x = x
+True && _ = True
+
+(&&!) :: Bool -> Bool -> Bool
+False &&! False = False
+False &&! True  = True
+True  &&! False = True
+True  &&! True  = True
+
+(&&!) :: Bool -> Bool -> Bool
+False &&! False = False
+False &&! True  = True
+True  &&! False = True
+True  &&! True  = True
+
+-- show
+main = print (True &&  (34^9784346 > 34987345))
+
+(&&!) :: Bool -> Bool -> Bool
+False &&! False = False
+False &&! True  = True
+True  &&! False = True
+True  &&! True  = True
+
+
+-- show
+main = print (True &&  (head [] == 'x'))
+
+if' :: Bool -> a -> a -> a
+if' True  x _ = x
+if' False _ y = y
+
+result = if' (2 < 4) "yes" "no"
+
+main = print result
